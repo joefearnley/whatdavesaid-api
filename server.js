@@ -33,5 +33,9 @@ server.route({
  */
 server.route({
     method: 'GET',
-    path:: '/random'
+    path: '/random',
+    handler: function (request, reply) {
+        // read in a clips
+        // spit out the data...
+    }
 });
