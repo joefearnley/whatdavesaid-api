@@ -20,18 +20,17 @@ describe('Clips', function() {
             request.get(url, function(error, response, body) {
                 expect(response).toBeDefined();
 
-                
             });
         });
     });
 
-    describe('GET /random', function() {
-        nock(baseUrl).get('/').reply(200, fakeResponse);
-
-        it('should list a random clip', function() {
-            request.get(url, function(error, response, body) {
-                expect(response).toBeDefined();
-            });
-        });
-    });
+    // describe('GET /random', function() {
+    //     nock(baseUrl).get('/').reply(200, fakeResponse);
+    //
+    //     it('should list a random clip', function() {
+    //         request.get(url, function(error, response, body) {
+    //             expect(response).toBeDefined();
+    //         });
+    //     });
+    // });
 });

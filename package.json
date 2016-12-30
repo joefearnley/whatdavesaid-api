@@ -20,10 +20,5 @@
     "hapi": "^16.0.2"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-http": "^3.0.0",
-    "jasmine-node": "^1.14.5",
-    "jasmine-spec-reporter": "^1.2.0",
-    "request": "^2.79.0"
   }
 }
