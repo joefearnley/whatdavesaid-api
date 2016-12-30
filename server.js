@@ -1,37 +1,42 @@
 'use strict';
 
-const Hapi = require('hapi');
+const express = require('express');
+const app = express();
+const url = 'http://herokuapp.com/whatdavesaid-api';
 
-const server = new Hapi.Server();
-server.connection({ port: 3000 });
-
-server.start((err) => {
-    if (err) {
-        throw err;
+const clips = [
+    {
+        fileName: 'black-metal.mp3',
+        title: "Black Metal",
+        path:`${url}/clips/black-metal.mp3`
+    },{
+        fileName: 'hot-damn.mp3',
+        title: "Hot Damn",
+        path:`${url}/clips/hot-damn.mp3`
+    },{
+        fileName: 'pansy-immune-system.mp3',
+        title: "Pansy Immune System",
+        path:`${url}/clips/pansy-immune-system.mp3`
     }
-    console.log(`Server running at: ${server.info.uri}`);
+];
+
+app.get('/', function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send({
+        clips: clips 
+    });
 });
 
-/**
- *  Get all clips.
- *
- * @type String (JSON? I'm building an API here, man)
- */
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-        // return all the clips.....
-        reply('Hello, world!');
-    }
+app.get('/random', function (req, res) {
+    let min = Math.ceil(0);
+    let max = Math.floor(3);
+    let number = Math.floor(Math.random() * (max - min)) + min;
+
+    res.send(clips[number]);
 });
 
-/**
- * Get a random clip.
- *
- * @type String (JSON? I'm building an API here, man)
- */
-server.route({
-    method: 'GET',
-    path:: '/random'
+app.listen(process.env.PORT, function () {
+  console.log('App listening on port ' + process.env.PORT)
 });
+
+module.exports = app;
