@@ -36,7 +36,7 @@ app.get('/random', function (req, res) {
 });
 
 app.listen(process.env.PORT, function () {
-  console.log('App listening on port ' + process.env.PORT)
+    console.log('App listening on port ' + process.env.PORT)
 });
 
 module.exports = app;

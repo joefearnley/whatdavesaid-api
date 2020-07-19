@@ -4,6 +4,7 @@
   "description": "What Dave Said API",
   "main": "server.js",
   "scripts": {
+    "start": "PORT=3210 node server.js",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
@@ -17,7 +18,7 @@
   },
   "homepage": "https://github.com/joefearnley/whatdavesaid-api#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
