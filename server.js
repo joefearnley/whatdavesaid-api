@@ -2,23 +2,7 @@
 
 const express = require('express');
 const app = express();
-const url = 'http://herokuapp.com/whatdavesaid-api';
-
-const clips = [
-    {
-        fileName: 'black-metal.mp3',
-        title: "Black Metal",
-        path:`${url}/clips/black-metal.mp3`
-    },{
-        fileName: 'hot-damn.mp3',
-        title: "Hot Damn",
-        path:`${url}/clips/hot-damn.mp3`
-    },{
-        fileName: 'pansy-immune-system.mp3',
-        title: "Pansy Immune System",
-        path:`${url}/clips/pansy-immune-system.mp3`
-    }
-];
+const clips = require('./clips');
 
 app.get('/', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
@@ -29,9 +13,10 @@ app.get('/', function (req, res) {
 
 app.get('/random', function (req, res) {
     let min = Math.ceil(0);
-    let max = Math.floor(3);
+    let max = Math.floor(13);
     let number = Math.floor(Math.random() * (max - min)) + min;
 
+    res.setHeader('Content-Type', 'application/json');
     res.send(clips[number]);
 });
 
