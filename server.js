@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const clips = require('./clips');
+const port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
@@ -20,8 +21,8 @@ app.get('/random', function (req, res) {
     res.send(clips[number]);
 });
 
-app.listen(3210, function () {
-    console.log('App listening on port ' + 3210);
-});
+app.listen(port, function () {
+    console.log(`App listening on port ${port}`);
+  });
 
 module.exports = app;
