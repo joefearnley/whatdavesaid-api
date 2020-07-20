@@ -20,8 +20,8 @@ app.get('/random', function (req, res) {
     res.send(clips[number]);
 });
 
-app.listen(process.env.PORT, function () {
-    console.log('App listening on port ' + process.env.PORT)
+app.listen(3210, function () {
+    console.log('App listening on port ' + 3210);
 });
 
 module.exports = app;
